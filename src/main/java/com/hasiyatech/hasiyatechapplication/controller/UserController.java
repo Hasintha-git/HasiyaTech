@@ -1,23 +1,33 @@
 package com.hasiyatech.hasiyatechapplication.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hasiyatech.hasiyatechapplication.DTO.request.User;
+import com.hasiyatech.hasiyatechapplication.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
+@RequestMapping("User")
 public class UserController {
 
-    @GetMapping("/")
+    @Autowired
+    public UserService userService;
+
+    @GetMapping("/get")
     public String home() {
+        User user = userService.findUser();
+        System.out.println(user+"<<<<");
         return ("<h1>Home</h1>");
     }
 
-    @GetMapping("/user")
+    @PostMapping("/save")
     public String user() {
-        return ("<h1>User</h1>");
+        return ("<h1>Save</h1>");
     }
 
-    @GetMapping("/admin")
+    @PutMapping("/update")
     public String admin() {
-        return ("<h1>Admin</h1>");
+        return ("<h1>Update</h1>");
     }
 }

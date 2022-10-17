@@ -1,4 +1,4 @@
-package com.hasiyatech.hasiyatechapplication.model;
+package com.hasiyatech.hasiyatechapplication.DTO.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
